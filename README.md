@@ -341,7 +341,7 @@ arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/langchain-agent-abc123
 
 ## Step 5: Test Your Deployed Agent
 
-Test with the starter toolkit:
+Test deployed agent:
 
 ```bash
 agentcore invoke '{"prompt": "What is the current timestamp?"}'
