@@ -323,6 +323,7 @@ During configuration:
 - **ECR Repository**: Press Enter to auto-create
 - **Dependency file**: Press Enter to use detected `requirements.txt`
 - **Authorization**: Choose `no` for OAuth (uses your local AWS credentials/role)
+- **Any other settings should just be able to press Enter to continue, but all of these are configurable, and up to you**
 
 Deploy to AWS:
 
@@ -333,7 +334,7 @@ agentcore launch
 After successful deployment, you'll receive an **Agent ARN** like:
 
 ```
-arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/langchain-agent-abc123
+arn:aws:bedrock-agentcore:us-east-1:123456789012:runtime/langchain-agent-abc123
 ```
 
 **Save this ARN** - you'll need it for testing and invoking the agent.
