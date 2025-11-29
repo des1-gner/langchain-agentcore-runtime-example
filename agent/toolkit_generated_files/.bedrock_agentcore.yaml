@@ -1,0 +1,30 @@
+default_agent: langchain_agent
+agents:
+  langchain_agent:
+    name: langchain_agent
+    entrypoint: langchain_agent.py
+    platform: linux/arm64
+    container_runtime: docker
+    aws:
+      execution_role: arn:aws:iam::<REDACTED-AWS-Account-Id>:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-<REDACTED-random-generated-string>
+      execution_role_auto_create: false
+      account: '<REDACTED-AWS-Account-Id>'
+      region: us-east-1
+      ecr_repository: <REDACTED-AWS-Account-Id>.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-langchain_agent
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: langchain_agent-<REDACTED-random-generated-string>
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:<REDACTED-AWS-Account-Id>:runtime/langchain_agent-<REDACTED-random-generated-string>
+      agent_session_id: null
+    codebuild:
+      project_name: bedrock-agentcore-langchain_agent-builder
+      execution_role: arn:aws:iam::<REDACTED-AWS-Account-Id>:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-1-<REDACTED-random-generated-string>
+      source_bucket: bedrock-agentcore-codebuild-sources-<REDACTED-AWS-Account-Id>-us-east-1
+    authorizer_configuration: null
+    oauth_configuration: null
